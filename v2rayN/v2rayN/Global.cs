@@ -6,6 +6,7 @@ namespace v2rayN
         #region 常量
 
 
+        public const string v2rayWebsiteUrl = @"https://www.v2ray.com/";
         public const string AboutUrl = @"https://github.com/2dust/v2rayN";
         public const string UpdateUrl = AboutUrl + @"/releases";
 
@@ -15,6 +16,7 @@ namespace v2rayN
         /// </summary>
         public const string SpeedTestUrl = @"http://speedtest-sgp1.digitalocean.com/10mb.test";
         public const string SpeedPingTestUrl = @"https://www.google.com/generate_204";
+        public const string AvailabilityTestUrl = @"https://www.google.com/generate_204";
 
         /// <summary>
         /// CustomRoutingListUrl
@@ -26,7 +28,7 @@ namespace v2rayN
         /// <summary>
         /// PromotionUrl
         /// </summary>
-        public const string PromotionUrl = @"aHR0cHM6Ly8xLjIzNDQ1Ni54eXovYWJjLmh0bWw=";
+        public const string PromotionUrl = @"aHR0cHM6Ly85LjIzNDQ1Ni54eXovYWJjLmh0bWw=";
 
         /// <summary>
         /// 本软件配置文件名
@@ -217,6 +219,10 @@ namespace v2rayN
         }
 
         public static Job processJob
+        {
+            get; set;
+        }
+        public static System.Threading.Mutex mutexObj
         {
             get; set;
         }

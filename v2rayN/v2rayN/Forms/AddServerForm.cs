@@ -166,7 +166,7 @@ namespace v2rayN.Forms
             }
             else
             {
-                UI.Show(UIRes.I18N("OperationFailed"));
+                UI.ShowWarning(UIRes.I18N("OperationFailed"));
             }
         }
 
@@ -207,9 +207,11 @@ namespace v2rayN.Forms
         {
             ClearServer();
 
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Multiselect = false;
-            fileDialog.Filter = "Config|*.json|All|*.*";
+            OpenFileDialog fileDialog = new OpenFileDialog
+            {
+                Multiselect = false,
+                Filter = "Config|*.json|All|*.*"
+            };
             if (fileDialog.ShowDialog() != DialogResult.OK)
             {
                 return;
@@ -231,7 +233,7 @@ namespace v2rayN.Forms
             }
             if (vmessItem == null)
             {
-                UI.Show(msg);
+                UI.ShowWarning(msg);
                 return;
             }
 
@@ -256,11 +258,10 @@ namespace v2rayN.Forms
         {
             ClearServer();
 
-            string msg;
-            VmessItem vmessItem = V2rayConfigHandler.ImportFromClipboardConfig(Utils.GetClipboardData(), out msg);
+            VmessItem vmessItem = V2rayConfigHandler.ImportFromClipboardConfig(Utils.GetClipboardData(), out string msg);
             if (vmessItem == null)
             {
-                UI.Show(msg);
+                UI.ShowWarning(msg);
                 return;
             }
 
